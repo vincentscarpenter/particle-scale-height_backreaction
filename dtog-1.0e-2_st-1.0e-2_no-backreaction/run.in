@@ -1,0 +1,62 @@
+!                          -*-f90-*- (for Emacs)
+!
+!  Run parameters for MRI turbulence
+!
+&run_pars
+  cvsid='$Id$',
+  nt=1000000000, it1=100, cdt=0.4, cdtv=0.4, isave=1000, itorder=3,
+  dsnap=6.2831853, dvid=0.314159265,
+  dtmin=1.0e-15
+  max_walltime=85800                                                   ! maximum wall clock time, in seconds    ; 23h50m
+/
+&hydro_run_pars
+/
+&density_run_pars
+!  diffrho_hyper3=6.0e-10, idiff='hyper3'
+  idiff='hyper3_mesh','diffrho-shock'
+  diffrho_hyper3_mesh=5.0
+  diffrho_shock=5.0
+/
+&eos_run_pars
+/
+&magnetic_run_pars
+!  eta_hyper3=6.0e-10, iresistivity='hyper3'
+  iresistivity='hyper3_mesh','eta-shock'
+  eta_hyper3_mesh=5.0
+  eta_shock=5.0
+/
+&shear_run_pars
+  qshear=1.5
+/
+&viscosity_run_pars
+!  nu_hyper3=6.0e-10, ivisc='hyper3_rho_nu-const_symm'
+  ivisc='hyper3_mesh','nu-shock'
+  nu_hyper3_mesh=5.0
+  nu_shock=5.0
+/
+&particles_run_pars
+!
+! Drag force felt by particles, from gas.
+!
+  ldragforce_dust_par=T          ! dust particles will feel a drag force from the gas, getting a friction time based on tausp
+  !ldraglaw_simple=T             ! draglaw sets how the friction time is calculated: simple -> friction time = tausp -> drag force = (u - v)/tausp
+  ldraglaw_epstein=T             ! draglaw sets how the friction time is calculated: epstein drag -> same as simple, allows for scaling with Omega_K or fluid density
+  !ldraglaw_variable=T           ! only one of variable or variable_density may be turned on with epstein drag; multiplies stopping time by Omega_K:     tausp -> tausp * r^(-1.5)
+  ldraglaw_variable_density=T    ! only one of variable or variable_density may be turned on with epstein drag; multiplies stopping time by gas density: tausp -> tausp * gas_density
+!
+! Backreaction: drag force felt by gas from dust (Newtonian pair with drag force applied to particles from gas)
+!  ldragforce_gas_par=T
+!
+
+!
+! Gravity felt by particles: not handled in gravity module, which is capable of handling dust gravity only if the dust is modelled as a fluid
+!
+  gravz_profile='sinusoidal'
+  gravz=-1.0                  ! based on some very rough estimates, we can say that GMr^(-2)*sin(theta) = GMr^(-2)*sin(z/r) ; GM* = 1.0, r = 1.0 => gravz = 1.0
+  kz_gg=6.28318530717958647   ! based on some very rough estimates, we can say that GMr^(-2)*sin(theta) = GMr^(-2)*sin(z/r) ; ignore z dependence of r => k_z = 1/r = 1/1.0
+!
+  lcheck_exact_frontier=T
+  lmigration_redo=T
+/
+&shock_run_pars
+/

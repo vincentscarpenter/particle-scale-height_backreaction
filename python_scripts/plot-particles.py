@@ -18,12 +18,12 @@ xp = pdata.xp
 yp = pdata.yp
 zp = pdata.zp
 
-x0 = parameters.xyz0[2]
+x0 = parameters.xyz0[0]
 y0 = parameters.xyz0[1]
-z0 = parameters.xyz0[0]
-x1 = parameters.xyz1[2]
+z0 = parameters.xyz0[2]
+x1 = parameters.xyz1[0]
 y1 = parameters.xyz1[1]
-z1 = parameters.xyz1[0]
+z1 = parameters.xyz1[2]
 
 y_lower_frac = 0.01
 y_upper_frac = 0.01
@@ -59,7 +59,8 @@ markersize = .01
 ax1.set_xlim([x0,x1])
 ax1.set_ylim([z0,z1])
 
-ax1.scatter(xp[yslice],zp[yslice],s=markersize)
+#ax1.scatter(xp[yslice],zp[yslice],s=markersize)
+ax1.contourf(data.x,data.z,data.rho[:,0,:])
 
 ax1.set_xlabel(r"$x$")
 ax1.set_ylabel(r"$z$")

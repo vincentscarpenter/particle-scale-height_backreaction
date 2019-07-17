@@ -18,7 +18,7 @@
 /
 &eos_init_pars
 !
-! Want a temperature gradient across the box? Density gradient?
+! No pressure gradient across the box, to avoid triggering the streaming instability.
 !
   cs0=1.0
   rho0=1.0
@@ -46,7 +46,7 @@
 ! Though perhaps it gives them gas velocity in the shearing box? Need to check this ; not sure which is better for this run.
 !
   initvvp='zero-shear'            ! Keplerian angular velocity
-  bcpx='p',bcpy='p',bcpz='rmv'    ! remove particles as they cross the inner or outer boundary of the disk
+  bcpx='p',bcpy='p',bcpz='rmv'
   lcheck_exact_frontier=T
   lmigration_real_check=T
   lparticlemesh_tsc=T             ! interpolation scheme for moving particle quantities to the mesh and back ; if neither tsc nor cic specified, ngp assumed
@@ -54,6 +54,6 @@
 !
 ! For now, I'll take tausp and dtog to be unity ; will need to change it later, to make sure stoke number < alpha or delta
 !
-  tausp=0.01                      ! stopping time ; = stokes number in code units
-  eps_dtog=0.01                   ! something something super particles? no idea what this does really ; hopefully not maintain a fixed dust to gas ratio
+  tausp=0.1                      ! stopping time ; = stokes number in code units
+  eps_dtog=1.0e-6                   ! initial bulk dust to gas mass ratio
 /

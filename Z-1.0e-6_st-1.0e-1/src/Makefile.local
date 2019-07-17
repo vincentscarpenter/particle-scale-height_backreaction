@@ -15,8 +15,12 @@ GRAVITY   = nogravity
 FORCING   = noforcing
 SHEAR     =   shear
 
+SHOCK = shock_highorder
+
 PARTICLES         = particles_dust_blocks
 PARTICLES_MAP     = particles_map_blocks
 PARTICLES_MPICOMM = particles_mpicomm_blocks
 
 FOURIER = fourier_fftpack
+
+REAL_PRECISION = double

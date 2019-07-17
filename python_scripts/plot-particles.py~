@@ -18,12 +18,12 @@ xp = pdata.xp
 yp = pdata.yp
 zp = pdata.zp
 
-x0 = parameters.xyz0[2]
+x0 = parameters.xyz0[0]
 y0 = parameters.xyz0[1]
-z0 = parameters.xyz0[0]
-x1 = parameters.xyz1[2]
+z0 = parameters.xyz0[2]
+x1 = parameters.xyz1[0]
 y1 = parameters.xyz1[1]
-z1 = parameters.xyz1[0]
+z1 = parameters.xyz1[2]
 
 y_lower_frac = 0.01
 y_upper_frac = 0.01

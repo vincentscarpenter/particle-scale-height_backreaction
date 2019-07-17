@@ -17,9 +17,9 @@ SHEAR     =   shear
 
 SHOCK = shock_highorder
 
-PARTICLES         = particles_dust
-PARTICLES_MAP     = particles_map
-PARTICLES_MPICOMM = particles_mpicomm
+PARTICLES         = particles_dust_blocks
+PARTICLES_MAP     = particles_map_blocks
+PARTICLES_MPICOMM = particles_mpicomm_blocks
 
 FOURIER = fourier_fftpack
 

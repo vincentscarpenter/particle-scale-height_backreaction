@@ -46,7 +46,7 @@
 ! Though perhaps it gives them gas velocity in the shearing box? Need to check this ; not sure which is better for this run.
 !
   initvvp='zero-shear'            ! Keplerian angular velocity
-  bcpx='p',bcpy='p',bcpz='rmv'
+  bcpx='p',bcpy='p',bcpz='p'
   lcheck_exact_frontier=T
   lmigration_real_check=T
   lparticlemesh_tsc=T             ! interpolation scheme for moving particle quantities to the mesh and back ; if neither tsc nor cic specified, ngp assumed

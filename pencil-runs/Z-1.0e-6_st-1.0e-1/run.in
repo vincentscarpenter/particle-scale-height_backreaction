@@ -43,7 +43,7 @@
   !ldraglaw_simple=T             ! draglaw sets how the friction time is calculated: simple -> friction time = tausp -> drag force = (u - v)/tausp
   ldraglaw_epstein=T             ! draglaw sets how the friction time is calculated: epstein drag -> same as simple, allows for scaling with Omega_K or fluid density
   !ldraglaw_variable=T           ! only one of variable or variable_density may be turned on with epstein drag; multiplies stopping time by Omega_K:     tausp -> tausp * r^(-1.5)
-  ldraglaw_variable_density=T    ! only one of variable or variable_density may be turned on with epstein drag; multiplies stopping time by gas density: tausp -> tausp * gas_density
+  !ldraglaw_variable_density=T    ! only one of variable or variable_density may be turned on with epstein drag; multiplies stopping time by gas density: tausp -> tausp * gas_density
 !
 ! Backreaction: drag force felt by gas from dust (Newtonian pair with drag force applied to particles from gas)
   ldragforce_gas_par=T

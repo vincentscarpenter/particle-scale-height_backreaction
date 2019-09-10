@@ -7,7 +7,7 @@
   xyz0  =  -0.50,  -0.50,  -0.50
   xyz1  =   0.50,   0.50,   0.50
   lperi =      T,      T,      T
-  ip=14, lwrite_ic=T
+  ip=14, lwrite_ic=T, lwrite_aux=T
 /
 &hydro_init_pars
   inituu='gaussian-noise', ampluu=1.0e-3
@@ -46,7 +46,7 @@
 ! Though perhaps it gives them gas velocity in the shearing box? Need to check this ; not sure which is better for this run.
 !
   initvvp='zero-shear'            ! Keplerian angular velocity
-  bcpx='p',bcpy='p',bcpz='rmv'
+  bcpx='p',bcpy='p',bcpz='p'
   lcheck_exact_frontier=T
   lmigration_real_check=T
   lparticlemesh_tsc=T             ! interpolation scheme for moving particle quantities to the mesh and back ; if neither tsc nor cic specified, ngp assumed
